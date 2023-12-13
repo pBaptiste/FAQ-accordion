@@ -13,16 +13,14 @@ const { question, answer, answerId } = Astro.props;
       alt="Plus Icon"
       width={30}
       height={30}
-      class="show"
-      id="plus"
+      class="plus show"
     />
     <Image
       src={iconMinus}
       alt="Minus Icon"
       width={30}
       height={30}
-      class="hide"
-      id="minus"
+      class="minus hide"
     />
   </>
 </button>
@@ -37,8 +35,8 @@ const { question, answer, answerId } = Astro.props;
   showBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const answer = document.getElementById(`${index}`);
-      const plusImg = btn.querySelector("#plus");
-      const minusImg = btn.querySelector("#minus");
+      const plusImg = btn.querySelector(".plus");
+      const minusImg = btn.querySelector(".minus");
 
       answer.classList.toggle("active");
       plusImg.classList.toggle("show")

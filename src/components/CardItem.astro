@@ -1,0 +1,120 @@
+---
+import { Image } from "astro:assets";
+import iconPlus from "../images/icon-plus.svg";
+import iconMinus from "../images/icon-minus.svg";
+const { question, answer, answerId } = Astro.props;
+---
+
+<button class="show-btn">
+  <p class="question">{question}</p>
+  <>
+    <Image
+      src={iconPlus}
+      alt="Plus Icon"
+      width={30}
+      height={30}
+      class="show"
+      id="plus"
+    />
+    <Image
+      src={iconMinus}
+      alt="Minus Icon"
+      width={30}
+      height={30}
+      class="hide"
+      id="minus"
+    />
+  </>
+</button>
+
+<p class="answer" id={answerId}>{answer}</p>
+
+<div class="divider" />
+
+<script>
+  let showBtns = document.querySelectorAll(".show-btn");
+
+  showBtns.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const answer = document.getElementById(`${index}`);
+      const plusImg = btn.querySelector("#plus");
+      const minusImg = btn.querySelector("#minus");
+
+      answer.classList.toggle("active");
+      plusImg.classList.toggle("show")
+      plusImg.classList.toggle("hide");
+      minusImg.classList.toggle("show");
+      minusImg.classList.toggle("hide")
+    });
+  });
+</script>
+
+<style>
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .question {
+    color: var(--dark-purple);
+    transition: color 0.4s ease;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    max-width: 225px;
+    text-align: start;
+  }
+
+  .question:hover {
+    color: var(--pink);
+  }
+
+  .answer {
+    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+    color: var(--pale-purple);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  .answer.active {
+    max-height: 500px;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--light-pink);
+  }
+
+  .divider:last-of-type {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .question {
+      font-size: 18px;
+      max-width: 450px;
+    }
+
+    .answer {
+        font-size: 16px;
+    }
+  }
+</style>

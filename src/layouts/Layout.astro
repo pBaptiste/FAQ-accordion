@@ -1,0 +1,44 @@
+---
+// Supports weights 100-900
+import '@fontsource-variable/work-sans';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="FAQ Accordion" content='A simple faq accordion component' />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'Work Sans Variable', sans-serif;
+	}
+	:root {
+		--light-pink: #F8EEFF;
+		--dark-purple: #301534;
+		--pink: #AD28EB;
+		--pale-purple: #8B6990;
+	}
+	
+</style>

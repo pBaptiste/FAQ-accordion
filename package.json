@@ -1,0 +1,17 @@
+{
+  "name": "faq-accordion",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/work-sans": "^5.0.17",
+    "astro": "^4.0.4",
+    "open-props": "^1.6.16"
+  }
+}
